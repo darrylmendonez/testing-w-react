@@ -31,8 +31,23 @@ describe('App Component', () => {
     }
     wrapper = setUp(initialState)
   })
+
   it('Should render without errors', () => {
     const component = findByTestAttr(wrapper, 'app-component')
     expect(component.length).toBe(1)
   })
+
+  it('exampleMethod_updateState Method should update state as expected', () => {
+    const classInstance = wrapper.instance()
+    classInstance.exampleMethod_updateState()
+    const newState = classInstance.state.hideBtn
+    expect(newState).toBe(true)
+  })
+
+  it('exampleMethod_returnsAValue Method should return value as expected', () => {
+    const classInstance = wrapper.instance()
+    const newValue = classInstance.exampleMethod_returnsAValue(6)
+    expect(newValue).toBe(7)
+  })
+
 })
